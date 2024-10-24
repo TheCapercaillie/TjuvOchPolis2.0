@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TjuvOchPolis2.0": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
