@@ -17,7 +17,42 @@ namespace TjuvOchPolis2._0
             this.width = width;
             this.height = height;
             grid = new char[height, width];
+            ClearMap();
+        }
+
+        public void ClearMap()
+        {
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    grid[y, x] = ' ';
+                }
+            }
+        }
+
+        // Placera en entity på mappen
+        public void PlaceEntity(Entity entity)
+        {
+            grid[entity.Y, entity.X] = entity.Symbol;
+        }
+
+        // Renderar mappen
+        public void Render()
+        {
+            Console.Clear();
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    char symbol = grid[y, x];
+
+                    Console.Write(symbol);
+                }
+                Console.WriteLine();
+            }
             
         }
+       
     }
 }
