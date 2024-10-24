@@ -26,8 +26,8 @@ namespace TjuvOchPolis2._0
             {
                 for (int x = 0; x < width; x++)
                 {
-                    grid[y, x] = ' ';
-                }
+                    grid[y, x] = ' '; // Griden alltså vad mappen består av och jag valde mellanslag
+                }                     // Men man kan ha en punkt eller någon annan symbol om man vill
             }
         }
 
@@ -46,6 +46,24 @@ namespace TjuvOchPolis2._0
                 for (int x = 0; x < width; x++)
                 {
                     char symbol = grid[y, x];
+
+                    // Lägger till färg beroende på entitien
+                    if (symbol == 'M')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else if (symbol == 'P')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
+                    else if (symbol == 'T')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White; // Default färg på blankt utrymme
+                    }
 
                     Console.Write(symbol);
                 }

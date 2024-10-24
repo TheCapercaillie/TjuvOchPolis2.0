@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            int mapWidth = 100;
+            int mapWidth = 100; // Mappens dimensioner
             int mapHeight = 25;
 
             // Skapar mappen
