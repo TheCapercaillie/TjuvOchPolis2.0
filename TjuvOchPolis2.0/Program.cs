@@ -22,6 +22,16 @@
 
             int caughtThieves = 0;
             int successfulRobberies = 0;
+
+            while (true)
+            {
+                map.ClearMap();
+
+                map.Render();
+
+                // Tickrate
+                System.Threading.Thread.Sleep(500);
+            }
         }
     }
 }
