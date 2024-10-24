@@ -43,9 +43,37 @@
                 foreach (Thief thief in thieves)
                 {
                     thief.Move(mapWidth, mapHeight);
+
+                    // Checkar collisioner med citizens
+                    Citizen robbedCitizen = citizens.FirstOrDefault(c => c.X == thief.X && c.Y == thief.Y);
+                    if (robbedCitizen != null && thief.StolenItems == null)
+                    {
+                        // Råna citizen
+                        thief.StolenItems = robbedCitizen.Items[random.Next(robbedCitizen.Items.Length)];
+                        Console.WriteLine($"A thief stole a {thief.StolenItems} from a citizen!");
+                        successfulRobberies++;
+                        // Pausa i 2 sek
+                        Thread.Sleep(2000);
+                    }
+
+                    // Checkar collisioner med polis
+                    Police policeman = police.FirstOrDefault(p => p.X == thief.X && p.Y == thief.Y);
+                    if (policeman != null && thief.StolenItems != null)
+                    {
+                        // Fångar tjuven
+                        Console.WriteLine("A thief has been caught by a policeman and lost the stolen item!");
+                        thief.StolenItems = null;
+                        caughtThieves++;
+                        // Pausa i 2 sek
+                        Thread.Sleep(2000);
+                    }
+
                     map.PlaceEntity(thief);
                 }
                 map.Render();
+
+                // Antalet robberies samt antalet fågna tjuvar
+                Console.WriteLine($"Robberies: {successfulRobberies} | Thieves Caught: {caughtThieves}");
 
                 // Tickrate
                 System.Threading.Thread.Sleep(500);
