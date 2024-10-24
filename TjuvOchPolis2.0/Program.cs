@@ -27,6 +27,24 @@
             {
                 map.ClearMap();
 
+                // Placera entities
+                foreach (Citizen citizen in citizens)
+                {
+                    citizen.Move(mapWidth, mapHeight);
+                    map.PlaceEntity(citizen);
+                }
+
+                foreach (Police policeman in police)
+                {
+                    policeman.Move(mapWidth, mapHeight);
+                    map.PlaceEntity(policeman);
+                }
+
+                foreach (Thief thief in thieves)
+                {
+                    thief.Move(mapWidth, mapHeight);
+                    map.PlaceEntity(thief);
+                }
                 map.Render();
 
                 // Tickrate

@@ -49,5 +49,17 @@ namespace TjuvOchPolis2._0
 
 
         }
+
+        // Dyker upp på andra sidan efter ha åkt ur mappen
+        public void Move(int width, int height)
+        {
+            X += DirectionX;
+            Y += DirectionY;
+
+            if (X < 0) X = width - 1;
+            if (X >= width) X = 0;
+            if (Y < 0) Y = height - 1;
+            if (Y >= height) Y = 0;
+        }
     }
 }
